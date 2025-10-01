@@ -15,6 +15,10 @@ import java.io.IOException;
 
 public class Controller {
     @FXML
+    public Button submitAdd;
+    @FXML
+    public Button cancelAdd;
+    @FXML
     private Button addButton;
     @FXML
     private Button redactionButton;
@@ -62,6 +66,19 @@ public class Controller {
         }else {
             this.label.setText("-");
         }
+    }
+
+    @FXML
+    public void onSubmitAdd(ActionEvent actionEvent) {
+        Stage stage = (Stage) submitAdd.getScene().getWindow();
+        stage.close();
+
+    }
+    @FXML
+    public void onCanselAdd(ActionEvent actionEvent) {
+        Stage stage = (Stage) submitAdd.getScene().getWindow();
+        stage.close();
+
     }
 
 }
