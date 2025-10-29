@@ -6,4 +6,8 @@ module org.example.lab2 {
 
     opens org.example.lab2 to javafx.fxml;
     exports org.example.lab2;
+
+    opens styles;
+    opens images;
+
 }

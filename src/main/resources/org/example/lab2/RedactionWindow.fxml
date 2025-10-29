@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="100" minWidth="400" prefHeight="100.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lab2.Controller">
+<AnchorPane maxHeight="100.0" maxWidth="400.0" minHeight="100" minWidth="400" prefHeight="100.0" prefWidth="400.0" stylesheets="@../../../styles/RedactionWindow.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lab2.Controller">
    <children>
       <VBox prefHeight="100.0" prefWidth="75.0" AnchorPane.leftAnchor="0.0">
          <children>
@@ -23,7 +23,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox layoutX="75.0" prefHeight="100.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="100.0">
+      <VBox layoutX="75.0" prefHeight="100.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="120.0">
          <children>
             <TextField>
                <VBox.margin>
@@ -37,16 +37,16 @@
             </TextField>
          </children>
       </VBox>
-      <VBox layoutX="324.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.rightAnchor="0.8000000000000114">
+      <VBox layoutX="324.0" prefHeight="100.0" prefWidth="121.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="submitAdd" mnemonicParsing="false" onAction="#onSubmitAdd" prefWidth="75.0" text="OK">
+            <Button id="MainButtons" fx:id="submitAdd" mnemonicParsing="false" onAction="#onSubmitAdd" prefWidth="100.0" text="OK">
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="cancelAdd" mnemonicParsing="false" onAction="#onCanselAdd" prefWidth="75.0" text="Відміна">
+            <Button id="MainButtons" fx:id="cancelAdd" mnemonicParsing="false" onAction="#onCanselAdd" prefWidth="691.0" text="Відміна">
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Button>
          </children>

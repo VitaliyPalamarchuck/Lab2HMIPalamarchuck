@@ -2,6 +2,7 @@ package org.example.lab2;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -14,9 +15,13 @@ public class Main extends Application {
         stage.setMinHeight(600);
         stage.setMinWidth(720);
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        scene.getStylesheets().add(Main.class.getResource("/styles/Mainwindow.css").toExternalForm());
+        Image icon = new Image(getClass().getResource("/images/app_icon.png").toExternalForm());
+        stage.getIcons().add(icon);
+        stage.setTitle("Адресна книга");
         stage.setScene(scene);
         stage.show();
+
 
     }
 
