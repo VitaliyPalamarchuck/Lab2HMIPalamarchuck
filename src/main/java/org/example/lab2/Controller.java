@@ -1,11 +1,13 @@
 package org.example.lab2;
 
+import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -31,6 +33,15 @@ public class Controller implements Initializable {
     private Button deleteButton;
     @FXML
     private Label label;
+    @FXML
+    private TableColumn<Person, String> columnPIP;
+    @FXML
+    private TableColumn<Person, String> columnPhone;
+
+    @FXML
+    private TableView<Person> tableAddressBook;
+
+    private CollectionAddressBook addressBookImpl =new CollectionAddressBook();
 
     @FXML
     public void showRedactionWindow(javafx.event.ActionEvent actionEvent) {
@@ -89,6 +100,16 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+        columnPIP.setCellValueFactory(new PropertyValueFactory<Person,String>("PIP"));
+        columnPhone.setCellValueFactory(new PropertyValueFactory<Person,String>("Phone"));
+        addressBookImpl.getPersonList().addListener(new ListChangeListener<Person>() {
+            @Override
+            public void onChanged(Change<? extends Person> c) {
+                updateCountLabel();
+            }
+        });
+        addressBookImpl.fillTestData();
+        tableAddressBook.setItems(addressBookImpl.getPersonList());
 
         OtherLabsBtn.setOnAction(actionEvent ->{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OtherLabs.fxml"));
@@ -108,6 +129,11 @@ public class Controller implements Initializable {
 
         });
     }
+
+    private void updateCountLabel(){
+        label.setText("Кількість записів: " + addressBookImpl.getPersonList().size());
+    }
+
 
     @FXML
     public void onSubmitAdd(ActionEvent actionEvent) {

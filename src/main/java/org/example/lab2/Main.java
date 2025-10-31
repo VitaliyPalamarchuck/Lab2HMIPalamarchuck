@@ -22,9 +22,14 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
+        testDate();
 
     }
 
+    public void testDate(){
+        CollectionAddressBook addressBook = new CollectionAddressBook();
+        addressBook.fillTestData();
+    }
 
     public static void main(String[] args) {
         launch();
