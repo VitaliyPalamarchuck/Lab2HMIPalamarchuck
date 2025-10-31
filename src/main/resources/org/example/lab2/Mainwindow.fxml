@@ -16,12 +16,12 @@
     </padding>
    <HBox prefHeight="100.0" prefWidth="600.0">
       <children>
-         <Button id="MainButtons" fx:id="addButton" mnemonicParsing="false" onAction="#showDialog" prefHeight="40.0" prefWidth="140.0" text="Добавити">
+         <Button id="MainButtons" fx:id="addButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" text="Добавити">
             <HBox.margin>
                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
             </HBox.margin>
          </Button>
-         <Button id="MainButtons" fx:id="redactionButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" text="Редагувати">
+         <Button id="MainButtons" fx:id="redactionButton" mnemonicParsing="false" onAction="#showRedactionWindow" prefHeight="40.0" prefWidth="140.0" text="Редагувати">
             <HBox.margin>
                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
             </HBox.margin>

@@ -11,7 +11,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import javax.print.DocFlavor;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,7 +33,7 @@ public class Controller implements Initializable {
     private Label label;
 
     @FXML
-    public void showDialog(javafx.event.ActionEvent actionEvent) {
+    public void showRedactionWindow(javafx.event.ActionEvent actionEvent) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RedactionWindow.fxml"));
 
             try{
@@ -70,14 +69,10 @@ public class Controller implements Initializable {
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image(getClass().getResource("/images/app_icon.png").toExternalForm()));
 
-
         DialogPane dialogPane = alert.getDialogPane();
 
-
-        // Додаємо CSS
         String cssPath = getClass().getResource("/styles/AlertStyles.css").toExternalForm();
         dialogPane.getStylesheets().add(cssPath);
-
         var result = alert.showAndWait().orElse(null);
 
         if(result == null){
