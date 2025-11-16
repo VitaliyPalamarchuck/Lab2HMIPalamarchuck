@@ -29,6 +29,7 @@ public class Main extends Application {
     public void testDate(){
         CollectionAddressBook addressBook = new CollectionAddressBook();
         addressBook.fillTestData();
+        addressBook.print();
     }
 
     public static void main(String[] args) {

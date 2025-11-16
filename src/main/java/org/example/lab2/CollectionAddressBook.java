@@ -27,6 +27,15 @@ public class CollectionAddressBook implements AddressBook {
 
     private ObservableList<Person> personList = FXCollections.observableArrayList();
 
+    public void print(){
+        int number = 0;
+        System.out.println();
+        for(Person person: personList){
+            number++;
+            System.out.println(number + ") ПІП: " + person.getPIP() + "; Телефон: " + person.getPhone());
+        }
+    }
+
     public void fillTestData(){
         getPersonList().add(new Person("Vitaliy","12341241212"));
         getPersonList().add(new Person("Yulia","523523222"));

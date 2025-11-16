@@ -43,6 +43,42 @@ public class Controller implements Initializable {
 
     private CollectionAddressBook addressBookImpl =new CollectionAddressBook();
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        columnPIP.setCellValueFactory(new PropertyValueFactory<Person,String>("PIP"));
+        columnPhone.setCellValueFactory(new PropertyValueFactory<Person,String>("Phone"));
+        addressBookImpl.getPersonList().addListener(new ListChangeListener<Person>() {
+            @Override
+            public void onChanged(Change<? extends Person> c) {
+                updateCountLabel();
+            }
+        });
+        addressBookImpl.fillTestData();
+        tableAddressBook.setItems(addressBookImpl.getPersonList());
+
+        OtherLabsBtn.setOnAction(actionEvent ->{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OtherLabs.fxml"));
+            Stage stage = new Stage();
+            Scene scene = null;
+            Image icon = new Image(getClass().getResource("/images/app_icon.png").toExternalForm());
+            stage.getIcons().add(icon);
+            try{
+                scene = new Scene(fxmlLoader.load(),600,600);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+            stage.setTitle("Інші практичні");
+            stage.setResizable(false);
+            stage.setScene(scene);
+            stage.show();
+
+        });
+    }
+
+    private void updateCountLabel(){
+        label.setText("Кількість записів: " + addressBookImpl.getPersonList().size());
+    }
+
     @FXML
     public void showRedactionWindow(javafx.event.ActionEvent actionEvent) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RedactionWindow.fxml"));
@@ -98,41 +134,7 @@ public class Controller implements Initializable {
     }
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        columnPIP.setCellValueFactory(new PropertyValueFactory<Person,String>("PIP"));
-        columnPhone.setCellValueFactory(new PropertyValueFactory<Person,String>("Phone"));
-        addressBookImpl.getPersonList().addListener(new ListChangeListener<Person>() {
-            @Override
-            public void onChanged(Change<? extends Person> c) {
-                updateCountLabel();
-            }
-        });
-        addressBookImpl.fillTestData();
-        tableAddressBook.setItems(addressBookImpl.getPersonList());
 
-        OtherLabsBtn.setOnAction(actionEvent ->{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OtherLabs.fxml"));
-            Stage stage = new Stage();
-            Scene scene = null;
-            Image icon = new Image(getClass().getResource("/images/app_icon.png").toExternalForm());
-            stage.getIcons().add(icon);
-            try{
-                scene = new Scene(fxmlLoader.load(),600,600);
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-            stage.setTitle("Інші практичні");
-            stage.setResizable(false);
-            stage.setScene(scene);
-            stage.show();
-
-        });
-    }
-
-    private void updateCountLabel(){
-        label.setText("Кількість записів: " + addressBookImpl.getPersonList().size());
-    }
 
 
     @FXML
