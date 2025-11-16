@@ -10,7 +10,7 @@ public class CollectionAddressBook implements AddressBook {
 
     @Override
     public void add(Person person){
-
+        personList.add(person);
     }
     @Override
     public void update(Person person){
@@ -18,7 +18,7 @@ public class CollectionAddressBook implements AddressBook {
     }
     @Override
     public void delete (Person person){
-
+        personList.remove(person);
     }
 
     public ObservableList<Person> getPersonList(){

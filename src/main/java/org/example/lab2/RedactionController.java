@@ -1,27 +1,47 @@
 package org.example.lab2;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.stage.Stage;
 
 public class RedactionController {
+    @FXML
+    private Button closeBtn;
+    @FXML
+    private Button saveBtn;
+    @FXML
+    private TextField txtPhone;
 
     @FXML
-    private Button submitAdd;
+    private TextField txtPip;
 
-    @FXML
-    private Button cancelAdd;
+    private Person person;
 
-    @FXML
-    public void onSubmitAdd(ActionEvent event) {
-        Stage stage = (Stage) submitAdd.getScene().getWindow();
-        stage.close();
+    public Person getPerson(){
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+        txtPip.setText(person.getPIP());
+        txtPhone.setText(person.getPhone());
+
     }
 
     @FXML
-    public void onCanselAdd(ActionEvent event) {
-        Stage stage = (Stage) cancelAdd.getScene().getWindow();
-        stage.close();
+    void actionSave(ActionEvent event){
+        person.setPIP(txtPip.getText());
+        person.setPhone(txtPhone.getText());
+        actionClose(event);
     }
+    @FXML
+    void actionClose(ActionEvent event){
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.hide();
+    }
+
 }

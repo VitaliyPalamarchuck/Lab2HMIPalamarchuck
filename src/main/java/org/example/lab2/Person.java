@@ -1,31 +1,51 @@
 package org.example.lab2;
 
+import javafx.beans.property.SimpleStringProperty;
+
 import java.util.ArrayList;
 
 public class Person {
-    private String PIP;
-    private String Phone;
+    private SimpleStringProperty PIP = new SimpleStringProperty("");
+    private SimpleStringProperty Phone = new SimpleStringProperty("");
+
+    public Person(String PIP, String phone) {
+        this.PIP = new SimpleStringProperty(PIP);
+        this.Phone = new SimpleStringProperty(phone);
+    }
+
+    public Person() {
+
+    }
 
     public String getPIP() {
+        return PIP.get();
+    }
+
+    public SimpleStringProperty PIPProperty() {
         return PIP;
     }
 
     public String getPhone() {
+        return Phone.get();
+    }
+
+    public SimpleStringProperty phoneProperty() {
         return Phone;
     }
 
     public void setPIP(String PIP) {
-        this.PIP = PIP;
+        this.PIP.set(PIP);
     }
 
     public void setPhone(String phone) {
-        this.Phone = phone;
+        this.Phone.set(phone);
     }
 
-    public Person(String PIP, String phone) {
-        this.PIP = PIP;
-        Phone = phone;
+    @Override
+    public String toString(){
+        return "Person{" +
+                "pip=" + PIP +
+                ", phone=" + Phone +
+                '}';
     }
-
-
 }

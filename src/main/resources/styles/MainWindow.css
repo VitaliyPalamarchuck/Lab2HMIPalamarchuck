@@ -15,6 +15,6 @@
     -fx-background-color: linear-gradient(from 0% 50% to 100% 50%, #02ab9e, #30d5c8);
     -fx-text-fill: white;
 }
-#UserLabel{
+#UserLabel, #TempMessageLabel{
     -fx-text-fill: white;
 }
