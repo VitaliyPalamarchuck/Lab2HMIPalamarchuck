@@ -186,25 +186,7 @@ public class Controller implements Initializable {
     }
 
 
-    @FXML
-    void openWindow(ActionEvent event) throws IOException, URISyntaxException{
-        Button clickedButton =(Button) event.getSource();
 
-        switch (clickedButton.getId()){
-            case "btnAdd":
-                editController.setPerson(new Person());
-                showDialog();
-                addressBookImpl.add(editController.getPerson());
-                break;
-            case "btnEdit":
-                editController.setPerson((Person) tableAddressBook.getSelectionModel().getSelectedItem());
-                showDialog();
-                break;
-            case "btnDelete":
-                addressBookImpl.delete((Person) tableAddressBook.getSelectionModel().getSelectedItem());
-                break;
-        }
-    }
 
 
 
