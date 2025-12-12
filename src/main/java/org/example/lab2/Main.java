@@ -15,7 +15,7 @@ public class Main extends Application {
         stage.setMinHeight(600);
         stage.setMinWidth(720);
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        scene.getStylesheets().add(Main.class.getResource("/styles/Mainwindow.css").toExternalForm());
+        scene.getStylesheets().add(Main.class.getResource("/styles/MainWindow.css").toExternalForm());
         Image icon = new Image(getClass().getResource("/images/app_icon.png").toExternalForm());
         stage.getIcons().add(icon);
         stage.setTitle("Адресна книга");
